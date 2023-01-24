@@ -2,10 +2,13 @@
 import './App.css';
 
 function App() {
+  let name="Aman Raj"
+  let rollNo=1902036
   return (
     <div className="App">
       <header className="App-header">
-        <h1>hello react</h1>
+        <h1>{name}</h1>
+        <h1>Roll no :{rollNo}</h1>
         <p>
           React js full course
         </p>
