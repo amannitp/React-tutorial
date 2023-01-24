@@ -6,4 +6,10 @@ function Header() {
   )
 }
 
-export default Header
+function Footer() {
+  return (
+    <div>Footer</div>
+  )
+}
+
+export  {Header,Footer}

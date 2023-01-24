@@ -1,6 +1,6 @@
 
 import './App.css';
-import Header from './Header';
+import {Header,Footer} from './Header'
 
 function App() {
   const name="Aman Raj"
@@ -9,6 +9,7 @@ function App() {
     <div className="App">
         <Header/>
         <h2>  My  name is {name}</h2>
+        <Footer/>
     </div>
   );
 }
