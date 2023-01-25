@@ -1,6 +1,6 @@
 
 import './App.css';
-import {Header,Footer} from './Header'
+import {Header,Footer} from './Component/Header'
 
 function App() {
   const name="Aman Raj"
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
         <Header/>
-        <h2>  My  name is {name}</h2>
+        <h2 style={{backgroundColor:"red",color:'black'}}>  My  name is {name}</h2>
         <Footer/>
     </div>
   );
