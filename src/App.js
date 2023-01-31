@@ -13,9 +13,22 @@ function App() {
   return (
     <div className="app">
 
-     {
+      
+    
+    {/* if else condition used in react
+      {
+        (()=>{
+          if(login){
+            return <h1>Hello i am Aman Raj</h1>
+          }else{
+            return <h1> i am kamlesh kumar</h1>
+          }
+        })()
+      } */}
+
+     {/* {
       login===true ?<Header/>:<Footer/>
-     }
+     } */}
 
       {/* {/* {
           movies.map((ele)=>{
