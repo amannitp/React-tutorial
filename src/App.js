@@ -8,13 +8,16 @@ import movies from './movie.json'
 
 function App() {
   const name="Aman Raj"
+  const login= false
   
   return (
     <div className="app">
 
+     {
+      login===true ?<Header/>:<Footer/>
+     }
 
-
-      {/* {
+      {/* {/* {
           movies.map((ele)=>{
 
           return(
@@ -26,7 +29,6 @@ function App() {
      
       {/* <div className='main'>
       <Moviedata/> */}
-      </div>
 
 
 
@@ -49,7 +51,7 @@ function App() {
         <h2 style={{backgroundColor:"red",color:'black'}}>  My  name is {name}</h2>
         <Footer/> */}
     </div>
-  );
+  )
 }
 
 export default App;
