@@ -1,0 +1,14 @@
+.hooksStyle{
+    background-color: aqua;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.btn{
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    margin: 10px;
+}
+.heading {
+    margin-left:75px;
+}

@@ -4,6 +4,7 @@ import {Header,Footer} from './Component/Header'
 import Movie from './Component/Movie';
 import Moviedata from './Component/Moviedata';
 import StudentProps from './Component/StudentProps';
+import UseStateHooks from './Component/UseStateHooks';
 import movies from './movie.json'
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
   return (
     <div className="app">
 
-      
+        <UseStateHooks/>
+
     
     {/* if else condition used in react
       {
