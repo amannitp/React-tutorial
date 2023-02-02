@@ -1,9 +1,11 @@
 import React from 'react'
 import '../Component/footer.css'
-import '../Component/header.css'
+import '../Component/Header.css'
 function Header() {
   return (
-    <h1 className='header'>This is  the header section</h1>
+    <div className='header-section'>
+        <h1 className='header'>Record keeping</h1>
+    </div>
   )
 }
 
