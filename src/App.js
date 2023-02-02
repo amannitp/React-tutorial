@@ -18,7 +18,8 @@ import { useEffect } from 'react';
 
 function App() {
 
-  const[count,setCount]=useState(0)
+  const[count,setCount]=useState(10)
+  const[data,setData]=useState(0)
 
   // useEffect(()=>{
   //   alert("alert ")
@@ -28,16 +29,38 @@ function App() {
   //   console.log("helllo world ")
   // },[])
 
+  // useEffect(()=>{
+  //   console.log("hello world")
+  // },[count])
+
+
   useEffect(()=>{
-    console.log("hello world")
+
+    async function getData(){
+      const get=await fetch(`https://hub.dummyapis.com/employee?noofRecords=${count}&idStarts=1001`)
+      const res=await get.json()
+      setData(res)
+      console.log(res)
+    }
+    getData()
   },[count])
 
 
   return(
-    <div>
-      {console.log(" re-render")}
+    <div style={{backgroundColor:"red"}}>
     <UseEffectTut/>
     <button onClick={()=>setCount(count+1)}>click Me</button>
+     {
+      data.map((element,idx)=>{
+        return(
+          <div key={idx}>
+            <h1>{element.firstName}</h1>
+            <h1>{element.lastName}</h1>
+          </div>
+
+        )
+      })
+     }
     </div>
   )
 
