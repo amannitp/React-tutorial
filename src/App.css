@@ -79,3 +79,24 @@ h1{
   margin: 15px;
   background-color: aqua;
 }
+.header-section{
+  background-color: #61dafb;
+  display: flex;
+  width: 100%;
+  color: white;
+ 
+}
+.header{
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+.header-content{
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+  align-items: center;
+
+
+  
+}
