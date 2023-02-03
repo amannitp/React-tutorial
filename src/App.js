@@ -15,6 +15,7 @@ import DataField from './Component/DataField';
 import DeleteIcon from '@mui/icons-material/Delete';
 import UseEffectTut from './Component/UseEffectTut';
 import { useEffect } from 'react';
+import EventTut from './Component/EventTut';
 
 function App() {
 
@@ -47,21 +48,23 @@ function App() {
 
 
   return(
-    <div style={{backgroundColor:"red"}}>
-    <UseEffectTut/>
-    <button onClick={()=>setCount(count+1)}>click Me</button>
-     {
-      data.map((element,idx)=>{
-        return(
-          <div key={idx}>
-            <h1>{element.firstName}</h1>
-            <h1>{element.lastName}</h1>
-          </div>
 
-        )
-      })
-     }
-    </div>
+    <EventTut/>
+    // <div style={{backgroundColor:"red"}}>
+    // <UseEffectTut/>
+    // <button onClick={()=>setCount(count+1)}>click Me</button>
+    //  {
+    //   data.map((element,idx)=>{
+    //     return(
+    //       <div key={idx}>
+    //         <h1>{element.firstName}</h1>
+    //         <h1>{element.lastName}</h1>
+    //       </div>
+
+    //     )
+    //   })
+    //  }
+    // </div>
   )
 
     
