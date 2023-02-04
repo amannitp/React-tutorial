@@ -71,6 +71,7 @@ function App() {
       <Route path='/Home' element={<Home/>}/>
       <Route path='/contact' element={<Contact/>}> 
          <Route path={'insta'} element={<Insta/>} />
+         <Route index element={<Insta/>} />
          <Route path={'Mail'} element={<Mail/>} />
       </Route>
       <Route path='/about' element={<About/>}/>
