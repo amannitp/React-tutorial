@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import AddIcon from '@mui/icons-material/Add';
-import { useState } from 'react';
+import { useState ,useRef} from 'react';
 import DataField from './Component/DataField';
 import DeleteIcon from '@mui/icons-material/Delete';
 import UseEffectTut from './Component/UseEffectTut';
@@ -35,6 +35,7 @@ import Insta from './Component/Insta';
 import Userdatail from './Component/Userdatail';
 import CompA from './Component/CompA';
 import { createContext } from 'react';
+import UseRef from './Component/UseRef';
 
 const AppState=createContext()
 function App() {
@@ -42,6 +43,15 @@ function App() {
 
   const[count,setCount]=useState(10)
   const[data,setData]=useState("Aman Raj")
+
+  const counter=useRef(0)
+
+  const handleChange=(e)=>{
+       counter.current=e.Target.value
+  }
+  const handle = ()=>{
+    counter.current=counter.current+1
+  }
 
   // useEffect(()=>{
   //   alert("alert ")
@@ -69,9 +79,16 @@ function App() {
 
 
   return(
-    <AppState.Provider value={data}>
-      <CompA />
-    </AppState.Provider>
+    <>
+     <UseRef/>
+     <input type="text" value={data} onChange={handleChange}/>
+     <button onClick={handle}>click me</button>
+     <h1>current input is : {counter.current}</h1>
+     </>
+   
+    // <AppState.Provider value={data}>
+    //   <CompA />
+    // </AppState.Provider>
     // <Router>
     // <Header/>
     
@@ -98,7 +115,7 @@ function App() {
     
     )
   }
-  export {AppState};
+ // export {AppState};
 
 export default App;
 

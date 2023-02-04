@@ -1,14 +1,14 @@
-import React from 'react'
-import CompB from './CompB'
+// import React from 'react'
+// import CompB from './CompB'
 
-const CompA = () => {
-  return (
-    <>
-    <div>CompA</div>
-    <CompB />
+// const CompA = () => {
+//   return (
+//     <>
+//     <div>CompA</div>
+//     <CompB />
       
-    </>
-  )
-}
+//     </>
+//   )
+// }
 
-export default CompA
+// export default CompA
