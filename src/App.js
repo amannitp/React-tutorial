@@ -29,6 +29,9 @@ import {
   useParams
 } from "react-router-dom";
 import Error from './Component/Error';
+import insta from './Component/Insta'
+import Mail from './Component/Mail'
+import Insta from './Component/Insta';
 
 function App() {
 
@@ -66,7 +69,10 @@ function App() {
     
       <Routes>
       <Route path='/Home' element={<Home/>}/>
-      <Route path='/contact' element={<Contact/>}/>
+      <Route path='/contact' element={<Contact/>}> 
+         <Route path={'insta'} element={<Insta/>} />
+         <Route path={'Mail'} element={<Mail/>} />
+      </Route>
       <Route path='/about' element={<About/>}/>
       <Route path='*' element={<Error/>}/>
       </Routes>
