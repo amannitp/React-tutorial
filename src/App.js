@@ -32,11 +32,13 @@ import Error from './Component/Error';
 import insta from './Component/Insta'
 import Mail from './Component/Mail'
 import Insta from './Component/Insta';
+import Userdatail from './Component/Userdatail';
+import CompA from './Component/CompA';
 
 function App() {
 
   const[count,setCount]=useState(10)
-  const[data,setData]=useState(0)
+  const[data,setData]=useState("Aman Raj")
 
   // useEffect(()=>{
   //   alert("alert ")
@@ -51,40 +53,44 @@ function App() {
   // },[count])
 
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
-    async function getData(){
-      const get=await fetch(`https://hub.dummyapis.com/employee?noofRecords=${count}&idStarts=1001`)
-      const res=await get.json()
-      setData(res)
-      console.log(res)
-    }
-    getData()
-  },[count])
+  //   async function getData(){
+  //     const get=await fetch(`https://hub.dummyapis.com/employee?noofRecords=${count}&idStarts=1001`)
+  //     const res=await get.json()
+  //     setData(res)
+  //     console.log(res)
+  //   }
+  //   getData()
+  // },[count])
 
 
   return(
-    <Router>
-    <Header/>
+    <div>
+      <CompA data={data}/>
+    </div>
+    // <Router>
+    // <Header/>
     
-      <Routes>
-        // by default routes 
-      <Route path='/'>
-        <Route index path='/App' element={<App/>}/>
-        <Route path='/App' element={<App/>}/>
-        </Route>
-      <Route path='/Home' element={<Home/>}/>
-      <Route path='/contact' element={<Contact/>}> 
-        // nested routing 
-         <Route path={'insta'} element={<Insta/>} />
-         // index routing
-         <Route index element={<Insta/>} />
-         <Route path={'Mail'} element={<Mail/>} />
-      </Route>
-      <Route path='/about' element={<About/>}/>
-      <Route path='*' element={<Error/>}/>
-      </Routes>
-    </Router>
+    //   <Routes>
+    //     // by default routes 
+    //   <Route path='/'>
+    //     <Route index path='/App' element={<App/>}/>
+    //     <Route path='/App' element={<App/>}/>
+    //     <Route path=':userdatail' element={<Userdatail/>}/>
+    //     </Route>
+    //   <Route path='/Home' element={<Home/>}/>
+    //   <Route path='/contact' element={<Contact/>}> 
+    //     // nested routing 
+    //      <Route path={'insta'} element={<Insta/>} />
+    //      // index routing
+    //      <Route index element={<Insta/>} />
+    //      <Route path={'Mail'} element={<Mail/>} />
+    //   </Route>
+    //   <Route path='/about' element={<About/>}/>
+    //   <Route path='*' element={<Error/>}/>
+    //   </Routes>
+    // </Router>
 
     
     )
