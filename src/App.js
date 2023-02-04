@@ -68,9 +68,16 @@ function App() {
     <Header/>
     
       <Routes>
+        // by default routes 
+      <Route path='/'>
+        <Route index path='/App' element={<App/>}/>
+        <Route path='/App' element={<App/>}/>
+        </Route>
       <Route path='/Home' element={<Home/>}/>
       <Route path='/contact' element={<Contact/>}> 
+        // nested routing 
          <Route path={'insta'} element={<Insta/>} />
+         // index routing
          <Route index element={<Insta/>} />
          <Route path={'Mail'} element={<Mail/>} />
       </Route>
