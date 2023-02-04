@@ -34,8 +34,11 @@ import Mail from './Component/Mail'
 import Insta from './Component/Insta';
 import Userdatail from './Component/Userdatail';
 import CompA from './Component/CompA';
+import { createContext } from 'react';
 
+const AppState=createContext()
 function App() {
+  
 
   const[count,setCount]=useState(10)
   const[data,setData]=useState("Aman Raj")
@@ -66,9 +69,9 @@ function App() {
 
 
   return(
-    <div>
-      <CompA data={data}/>
-    </div>
+    <AppState.Provider value={data}>
+      <CompA />
+    </AppState.Provider>
     // <Router>
     // <Header/>
     
@@ -95,5 +98,7 @@ function App() {
     
     )
   }
+  export {AppState};
 
 export default App;
+

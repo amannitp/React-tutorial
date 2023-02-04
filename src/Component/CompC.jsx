@@ -1,10 +1,13 @@
-import React from 'react'
+import React,{useContext} from 'react'
 
-const CompC = ({data}) => {
+import { AppState } from '../App'
+
+const CompC = () => {
+    const appData=useContext(AppState)
   return (
     <>
     <div>CompC</div>  
-    <h1>{data}</h1>
+    <h1>{appData}</h1>
     </>
   )
 }
