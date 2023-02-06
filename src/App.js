@@ -10,11 +10,10 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import AddIcon from '@mui/icons-material/Add';
-import { useState ,useRef} from 'react';
+import { useState ,useRef,useEffect,createContext,useReducer} from 'react';
 import DataField from './Component/DataField';
 import DeleteIcon from '@mui/icons-material/Delete';
 import UseEffectTut from './Component/UseEffectTut';
-import { useEffect } from 'react';
 import EventTut from './Component/EventTut';
 import Contact from './Component/Contact';
 import Home from './Component/Home';
@@ -34,24 +33,22 @@ import Mail from './Component/Mail'
 import Insta from './Component/Insta';
 import Userdatail from './Component/Userdatail';
 import CompA from './Component/CompA';
-import { createContext } from 'react';
 import UseRef from './Component/UseRef';
 
-const AppState=createContext()
+const reducer=(state,action)=>{
+  if(action.type==="INC")
+    return state+1;
+  else if(action.type==='DEC')
+    return state-1
+  else if(action.type==="MUL")
+  return state*5;
+
+}
+
 function App() {
   
 
-  const[count,setCount]=useState(10)
-  const[data,setData]=useState("Aman Raj")
-
-  const counter=useRef(0)
-
-  const handleChange=(e)=>{
-       counter.current=e.Target.value
-  }
-  const handle = ()=>{
-    counter.current=counter.current+1
-  }
+  
 
   // useEffect(()=>{
   //   alert("alert ")
@@ -76,14 +73,21 @@ function App() {
   //   }
   //   getData()
   // },[count])
-
+  const [state,dispatch]=useReducer(reducer, 0)
+  
+  
 
   return(
     <>
-     <UseRef/>
+    <Movie/>
+    <h1>{state}</h1>
+    <button onClick={()=>dispatch({type:"INC"})}>Increment</button>
+    <button onClick={()=>dispatch({type:"DEC"})}>Decrement</button>
+    <button onClick={()=>dispatch({type:"MUL"})}>multiply</button>
+     {/* <UseRef/>
      <input type="text" value={data} onChange={handleChange}/>
-     <button onClick={handle}>click me</button>
-     <h1>current input is : {counter.current}</h1>
+     <button>click me</button>
+     <h1>current input is : {counter.current}</h1> */}
      </>
    
     // <AppState.Provider value={data}>
