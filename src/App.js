@@ -18,6 +18,7 @@ import EventTut from './Component/EventTut';
 import Contact from './Component/Contact';
 import Home from './Component/Home';
 import About from './Component/About';
+import CusṭomHoks from './Component/CusṭomHoks';
 
 import {
   BrowserRouter as Router,
@@ -74,16 +75,25 @@ function App() {
   //   getData()
   // },[count])
   const [state,dispatch]=useReducer(reducer, 0)
+
+  const [data]=CusṭomHoks(`https://hub.dummyapis.com/employee?noofRecords=${50}}&idStarts=1001`)
   
   
 
   return(
     <>
     <Movie/>
-    <h1>{state}</h1>
+    {
+      data.map((e,index)=>{
+        return <h1 key={index}>{e.firstName}</h1>
+      })
+    }
+
+   
+    {/* <h1>{state}</h1>
     <button onClick={()=>dispatch({type:"INC"})}>Increment</button>
     <button onClick={()=>dispatch({type:"DEC"})}>Decrement</button>
-    <button onClick={()=>dispatch({type:"MUL"})}>multiply</button>
+    <button onClick={()=>dispatch({type:"MUL"})}>multiply</button> */}
      {/* <UseRef/>
      <input type="text" value={data} onChange={handleChange}/>
      <button>click me</button>
