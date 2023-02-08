@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import AddIcon from '@mui/icons-material/Add';
-import { useState ,useRef,useEffect,createContext,useReducer} from 'react';
+import { useState ,useRef,useEffect,createContext,useReducer,useMemo} from 'react';
 import DataField from './Component/DataField';
 import DeleteIcon from '@mui/icons-material/Delete';
 import UseEffectTut from './Component/UseEffectTut';
@@ -74,20 +74,35 @@ function App() {
   //   }
   //   getData()
   // },[count])
+  const [count,setCount]=useState(0)
+  const[name,setName]=useState('')
   const [state,dispatch]=useReducer(reducer, 0)
 
   const [data]=CusṭomHoks(`https://hub.dummyapis.com/employee?noofRecords=${50}}&idStarts=1001`)
-  
-  
 
+  const expensiveCalculation=(num)=>{
+    console.log("claculating")
+    for(let i=0;i<10000;i++){
+      return num
+    }
+  }
+
+  const calculation=useMemo(()=>{
+    expensiveCalculation(count)
+  },[count])
+  
+  
+ const handleChange=(e)=>{
+  setName(e.target.value)
+ }
   return(
     <>
     <Movie/>
-    {
-      data.map((e,index)=>{
-        return <h1 key={index}>{e.firstName}</h1>
-      })
-    }
+    <button onClick={()=>setCount(count+1)}>Increment</button>
+    <h1>calculation is :{count}</h1>
+
+    <input type="text" onChange={handleChange} />
+    <h1> Name is :{name}</h1>
 
    
     {/* <h1>{state}</h1>
