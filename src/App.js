@@ -36,6 +36,8 @@ import Userdatail from './Component/Userdatail';
 import CompA from './Component/CompA';
 import UseRef from './Component/UseRef';
 import { CallToActionOutlined } from '@mui/icons-material';
+import { TailSpin } from 'react-loader-spinner';
+import { height } from '@mui/system';
 
 const reducer=(state,action)=>{
   if(action.type==="INC")
@@ -65,22 +67,28 @@ function App() {
   // },[count])
 
 
-  // useEffect(()=>{
-
-  //   async function getData(){
-  //     const get=await fetch(`https://hub.dummyapis.com/employee?noofRecords=${count}&idStarts=1001`)
-  //     const res=await get.json()
-  //     setData(res)
-  //     console.log(res)
-  //   }
-  //   getData()
-  // },[count])
-  const [count,setCount]=useState(0)
+  
+  const [loading,setLoading]=useState(false)
+  const [data,setData]=useState([])
   const[name,setName]=useState('')
   const[todos,setTodos]=useState("")
   const [state,dispatch]=useReducer(reducer, 0)
 
-  const [data]=CusṭomHoks(`https://hub.dummyapis.com/employee?noofRecords=${50}}&idStarts=1001`)
+
+  useEffect(()=>{
+    setLoading(true)
+    async function getData(){
+      const get=await fetch(`https://hub.dummyapis.com/employee?noofRecords=${1000}&idStarts=1001`)
+      const res=await get.json()
+      setData(res)
+      setLoading(false)
+      console.log(res)
+    }
+    getData()
+    
+  },[])
+
+  //const [data]=CusṭomHoks(`https://hub.dummyapis.com/employee?noofRecords=${50}}&idStarts=1001`)
 
   const expensiveCalculation=(num)=>{
     console.log("claculating")
@@ -89,26 +97,35 @@ function App() {
     }
   }
 
-  const calculation=useMemo(()=>{
-    expensiveCalculation(count)
-  },[count])
+  // const calculation=useMemo(()=>{
+  //   expensiveCalculation(count)
+  // },[count])
   
   
  const handleChange=(e)=>{
   setName(e.target.value)
  }
 
- useCallback(()=>{
-  CallTodo(count)
- })
+//  useCallback(()=>{
+//   CallTodo(count)
+//  })
   return(
     <>
     <Movie/>
-    <button onClick={()=>setCount(count+1)}>Increment</button>
+    <div className='styleTailspin'>
+     
+      {loading?<TailSpin color='red' height={40}/>
+      :
+        data.map((e,i)=>{
+          return <h1 key={i}>Name is : {e.firstName}</h1>
+        })
+      }
+    </div>
+    {/* <button onClick={()=>setCount(count+1)}>Increment</button>
     <h1>calculation is :{count}</h1>
 
     <input type="text" onChange={handleChange} />
-    <h1> Name is :{name}</h1>
+    <h1> Name is :{name}</h1> */}
 
    
     {/* <h1>{state}</h1>
