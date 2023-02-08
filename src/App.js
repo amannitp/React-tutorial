@@ -19,6 +19,8 @@ import Contact from './Component/Contact';
 import Home from './Component/Home';
 import About from './Component/About';
 import CusṭomHoks from './Component/CusṭomHoks';
+import { ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   BrowserRouter as Router,
@@ -82,9 +84,11 @@ function App() {
       const res=await get.json()
       setData(res)
       setLoading(false)
+      toast.success(" fetch data successfully")
       console.log(res)
     }
     getData()
+   
     
   },[])
 
@@ -112,6 +116,7 @@ function App() {
   return(
     <>
     <Movie/>
+    <ToastContainer/>
     <div className='styleTailspin'>
      
       {loading?<TailSpin color='red' height={40}/>
